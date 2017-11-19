@@ -17,7 +17,7 @@
                         <input ng-model="vm.preco" class="form-control" maxlength="150" name="username" placeholder="Nome de usuário" type="text" required />
                     </div>
                 </form>
-                <button class="btn login-btn" type="submit" ng-click="vm.setPrecoOrdem()">Enviar</button>
+                <button ng-hide="vm.ordem.status!='Criada'" class="btn login-btn" type="submit" ng-click="vm.setPrecoOrdem()">Enviar</button>
             </div>
         </div>
     </div>

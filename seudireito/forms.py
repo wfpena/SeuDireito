@@ -4,11 +4,13 @@ from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
 
+from core.models import UserProfile
+
 
 class UserLoginForm(forms.ModelForm):
 
     class Meta:
-        model = User
+        model = UserProfile
         fields = ('username', 'password')
         widgets = {
             'username': forms.TextInput(
@@ -59,5 +61,5 @@ class UsuarioForm(forms.ModelForm):
         label='email', required=False)
 
     class Meta:
-        model = User
+        model = UserProfile
         fields = ('username', 'email', 'password',)

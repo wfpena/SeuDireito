@@ -8,15 +8,18 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="preco in vm.ordem.preco_advogado" ng-click="vm.delegaOrdem(preco.advogado.id)">
+          <tr class="table-row" ng-repeat="preco in vm.ordem.preco_advogado" confirmed-click="vm.delegaOrdem(preco.advogado.id)" ng-confirm-click="Delegar ordem ao advogado {[{preco.advogado.nome}]}?">
             <td>{[{ preco.advogado.nome }]}</td>
             <td>{[{ preco.preco }]}</td>
           </tr>
         </tbody>
       </table>
     </div>
-    <div style="text-align:center;margin:20px;" ng-if="vm.ordemDelegada">
-        <h4>Ordem delegada ao Advogado: {[{vm.preco.advogado.nome}]} por {[{vm.preco.preco}]}</h4>
+    <div style="text-align:center;margin:20px;" ng-if="vm.ordemDelegada && !vm.preco">
+      <h4 style="color:green;">Ordem delegada com sucesso</h4>
+    </div>
+    <div style="text-align:center;margin:20px;" ng-if="vm.ordemDelegada && vm.preco">
+      <h4>Ordem delegada ao Advogado: {[{vm.preco.advogado.nome}]} <span ng-show="vm.preco.preco">por {[{vm.preco.preco}]}</span></h4>
         <button ng-hide="vm.ordem.status == 'Finalizada'" class="btn login-btn" ng-click="vm.finalizarOrdem(vm.ordem.id)">Finalizar Ordem</button>
       <p ng-show="vm.ordem.status == 'Finalizada'"><span style="background-color:#c8c2c2;padding:5px;">Ordem Finalizada</span></p>
     </div>

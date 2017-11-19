@@ -38,10 +38,10 @@
             });
     }
 
-    vm.delegaOrdem = function(id){
+    vm.delegaOrdem = function(id, nome){
         ordemService.delegaOrdem({id: vm.ordem.id, advogado: id})
             .then(function(response){
-
+                vm.ordemDelegada = true;
             });
     }
 

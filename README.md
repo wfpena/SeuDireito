@@ -18,7 +18,7 @@ Os únicos requisitos do projeto são o docker, docker-compose e o docker-machin
 
 Todos os pré-requisitos além destes estão no arquivo 'requirements.txt'. Estes requisitos são instalados com a inicialização do docker. Pelo Dockerfile:
 ```
- FROM python:3.5
+ FROM python:3.6
  RUN apt-get update \
     && apt-get install -y postgresql-client-9.4 \
     && rm -rf /var/lib/apt/lists/
