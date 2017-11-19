@@ -1,7 +1,6 @@
 (function() {
  'use strict';
  angular.module('app').controller('AdvogadoCtrl', function($scope, $state, $http, $stateParams, ordemService) {
-
     var vm = this;
 
     if($stateParams.id){

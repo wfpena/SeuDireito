@@ -2,14 +2,6 @@
     'use strict';
     angular.module('app').factory('userService', function($http) {
         return {
-            getGroups: function(params) {
-                 return $http.get('/api/grupos/list_grupos/', {
-                    params : params
-                });
-            },
-            authUser: function(params, user, pass) {
-                 return $http.post('/api/auth/', {headers:{'Authorization': 'Token ' + window.btoa(user + ':' + pass)}});
-            },
             saveUser: function(params) {
                  return $http.post('/api/empresa/',
                     params

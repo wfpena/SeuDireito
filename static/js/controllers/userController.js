@@ -1,9 +1,7 @@
 (function() {
     'use strict';
     angular.module('app').controller('UserCtrl', function($scope, $window,  $state, userService) {
-
     var vm = this;
-
     vm.tab = 1;
     vm.pass = null;
     vm.user = null;
@@ -31,8 +29,6 @@
                     }
                 })
         }
-
     }
-
     });
 })();

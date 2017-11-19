@@ -1,10 +1,8 @@
 (function() {
  'use strict';
  angular.module('app').controller('EmpresaCtrl', function($scope, $stateParams, $filter, $http, $state, ordemService) {
-
     var vm = this;
     vm.ordem = {};
-
     vm.ordemDelegada = false;
 
     if($stateParams.id){

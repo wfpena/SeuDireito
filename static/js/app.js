@@ -68,8 +68,6 @@
       });
  }])
 
-
-
  angular.module('app').directive('ngConfirmClick', [
     function(){
         return {
