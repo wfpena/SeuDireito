@@ -1,0 +1,14 @@
+{%extends 'seudireito/base.html'%}
+
+{%block content%}
+<section class="content">
+    <div class="container-fluid">
+        <h2>Advogado</h2>
+         <ul class="nav nav-tabs">
+            <li class="tab-main" ng-class="{'active-tab': vm.tab == 1}"><a style="margin:5px;" ui-sref="ordensAdvogado" ng-click="vm.tab=1" >Ordens</a></li>
+            <li class="tab-main" ng-class="{'active-tab': vm.tab == 2}"><a style="margin:5px;" ui-sref="ordensEnviadas" ng-click="vm.tab=2">Ordens Enviadas</a></li>
+        </ul>
+    </div>
+    <div ui-view></div>
+</section>
+{%endblock%}

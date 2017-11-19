@@ -1,0 +1,20 @@
+<div>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Titulo</th>
+            <th>Empresa</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="table-row" ng-repeat="ordem in vm.ordens" ui-sref="ordemPreco({id: ordem.id})">
+            <td>{[{ ordem.titulo }]}</td>
+            <td>{[{ ordem.empresa.nome_razao_social }]}</td>
+            <td><span style="color:white;" ng-class="{'red': ordem.status=='Delegada', 'blue': ordem.status == 'Criada'}">{[{ ordem.status }]}</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>

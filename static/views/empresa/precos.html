@@ -1,0 +1,18 @@
+<div>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Advogado</th>
+            <th>Preco</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="preco in vm.ordem.preco_advogado" ng-click="vm.delegaOrdem(preco.advogado.id)">
+            <td>{[{ preco.advogado.nome }]}</td>
+            <td>{[{ preco.preco }]}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>

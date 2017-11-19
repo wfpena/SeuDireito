@@ -1,0 +1,68 @@
+{%extends 'seudireito/base.html'%}
+
+{%block topbar%}
+{%endblock%}
+
+{%block content%}
+<section class="content">
+    <div ng-controller="UserCtrl as vm" class="container-fluid">
+        <div class="col-md-4 container" style="margin:0 auto;margin-top:100px;text-align:center;">
+            <ul class="nav nav-tabs">
+                <li style="width:50%;" ng-class="{'active-tab': vm.tab == 1}"><a ng-click="vm.tab=1" data-toggle="tab" href="#advogado">Advogado</a></li>
+                <li style="width:50%;" ng-class="{'active-tab': vm.tab == 2}"><a ng-click="vm.tab=2" data-toggle="tab" href="#empresa">Empresa</a></li>
+            </ul>
+            <div class="tab-content">
+                <div ng-show="vm.tab==1" id="advogado" class="tab-pane in active">
+                    <form role="form" action="" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label>Nome</label>
+                            <input ng-model="vm.advogado.username" class="form-control" id="id_username" maxlength="150" name="username" placeholder="Nome de usuário" type="text" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label>CPF</label>
+                            <input  ng-model="vm.advogado.cpf" class="form-control" id="id_cpf" maxlength="150" placeholder="CPF" type="text" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Telefone</label>
+                            <input ng-model="vm.advogado.telefone" class="form-control" id="id_telefone" maxlength="128" placeholder="Telefone" type="tel" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input ng-model="vm.advogado.email" class="form-control" id="id_email" maxlength="128" placeholder="Email" type="email" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Senha</label>
+                            <input ng-model="vm.advogado.password" class="form-control" id="id_password" maxlength="128" name="password" placeholder="Senha" type="password" required />
+                        </div>
+                    </form>
+                </div>
+                <div ng-show="vm.tab==2" id="empresa" class="tab-pane">
+                    <form role="form" action="" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label>Nome</label>
+                            <input  ng-model="vm.empresa.username" class="form-control" id="id_name" maxlength="150" name="username" placeholder="Nome de usuário" type="text" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Ramo</label>
+                            <input ng-model="vm.empresa.ramo" class="form-control" id="id_ramo" maxlength="150" placeholder="Ramo" type="text" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label>Senha</label>
+                            <input ng-model="vm.empresa.password" class="form-control" id="id_passempresa" maxlength="128" name="password" placeholder="Senha" type="password" required />
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <button class="btn login-btn" type="submit" ng-click="vm.registerUser()">Cadastrar</button>
+        </div>
+    </div>
+</section>
+{%endblock%}

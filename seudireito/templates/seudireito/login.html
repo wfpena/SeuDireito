@@ -1,0 +1,26 @@
+{%extends 'seudireito/base.html'%}
+
+{%block topbar%}
+{%endblock%}
+
+{%block content%}
+<section class="content">
+    <div ng-controller="UserCtrl as vm" class="container-fluid">
+        <div class="col-md-4 login-card" style="margin:0 auto;margin-top:100px;text-align:center;">
+            <div class="body">
+                <form role="form" action="" method="post">
+                {% csrf_token %}
+                    {% for field in form %}
+                    <div class="form-group">
+                        <label>{{field.label}}</label>
+                        {{field}}
+                    </div>
+                    {% endfor %}
+                <button class="btn login-btn" type="submit">Entrar</button>
+                </form>
+                <a href="{% url 'cadastroview'%}"><footer style="font-size:15px;margin:15px;">Ainda não é cadastrado? Cadastre-se aqui</footer></a>
+            </div>
+        </div>
+    </div>
+</section>
+{%endblock%}

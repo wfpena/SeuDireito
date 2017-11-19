@@ -1,0 +1,21 @@
+<div>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Titulo</th>
+            <th>Preco</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="ordem in vm.ordensEnviadas" ui-sref="ordemPreco({id: ordem.id})">
+            <td>{[{ ordem.ordem.titulo }]}</td>
+            <td>{[{ ordem.preco }]}</td>
+            <td ng-if="ordem.delegada">Aceita</td>
+            <td ng-if="!ordem.delegada">Não Confirmada</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
