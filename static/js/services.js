@@ -39,8 +39,6 @@
             finalizaOrdem: function(id) {
                 return $http.get('/api/ordem/' + id + '/finaliza_ordem/');
             }
-
         }
     });
-
 })();

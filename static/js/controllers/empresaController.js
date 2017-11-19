@@ -42,6 +42,5 @@
                 vm.ordemDelegada = true;
             });
     }
-
  });
 })();

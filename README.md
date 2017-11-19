@@ -6,7 +6,7 @@ Projeto que permite a comunicação entre empresas e advogados. As empresas cada
 
 O projeto deve ser inicializado com os seguintes passos:
 
-1. Iniciar a máquina virtual - `docker-machine create -d virtualbox dev;` 
+1. Iniciar a máquina virtual - `docker-machine create -d virtualbox dev` 
 2. No diretório SeuDireito, iniciar o container - `docker-compose up`
 3. Criar as migrações: `docker-compose run web /usr/local/bin/python manage.py migrate `
 4. Encontrar o ip da máquina com: `docker-machine ip dev`
@@ -45,3 +45,10 @@ O projeto foi feito com o Django Rest Framework no backend e AngularJS no front-
 O usuário inicialmente pode se cadastrar como Advogado ou como Empresa. Ao se cadastrar cada um é redirecionado para uma página diferente.
 
 Os Advogados podem ver a listagem das ordens e o status de cada ordem. Só podem definir um preço para uma ordem se ela estiver com o status 'Criada'. Ao definir o preço estas informações são direcionadas para a Empresa que cadastrou a ordem, que pode avaliar entre todas as propostas, e definir como 'Delegada' aquela que achar mais conveniente.
+
+Após delegar a ordem de serviço, a Empresa pode marcá-la com o status 'Finalizada', clicando na ordem que foi delegada na tabela principal.
+
+### O que não foi feito
+
+* Faltam ainda implementar as validações dos campos como CPF, Telefone, etc.
+* Fata inserir permissões para cada médoto.
