@@ -3,11 +3,7 @@ from django.contrib import admin
 
 from core import urls as coreurls
 from seudireito.views import (
-    LoginView,
-    UserLogoutView,
-    CadastroView,
-    EmpresaView,
-    AdvogadoView,
+    LoginView, UserLogoutView, CadastroView, EmpresaView, AdvogadoView
 )
 
 app_name = 'seudireito'
@@ -16,6 +12,7 @@ urlpatterns = [
     url(r'^api/', include(coreurls)),
     url(r'^logout/$', UserLogoutView.as_view(), name='logoutview'),
     url(r'^login/$', LoginView.as_view(), name='loginview'),
+    url(r'^$', EmpresaView.as_view(), name='indexview'),
 
     # App core modules
     url(r'^cadastro/$', CadastroView.as_view(), name='cadastroview'),
