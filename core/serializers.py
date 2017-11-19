@@ -9,15 +9,18 @@ class EmpresaSerializer(serializers.ModelSerializer):
         model = Empresa
         fields = ('id', 'nome_razao_social')
 
+
 class AdvogadoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Advogado
         fields = ('id', 'nome')
 
+
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = '__all__'
+
 
 class OrdemSerializer(serializers.ModelSerializer):
     status = serializers.CharField(source='get_status_display')
@@ -25,6 +28,7 @@ class OrdemSerializer(serializers.ModelSerializer):
     class Meta:
         model = OrdemServico
         fields = ('id', 'titulo', 'status')
+
 
 class PrecoSerializer(serializers.ModelSerializer):
     advogado = AdvogadoSerializer()
@@ -34,9 +38,12 @@ class PrecoSerializer(serializers.ModelSerializer):
         model = Preco
         fields = '__all__'
 
+
 class OrdemServicoSerializer(serializers.ModelSerializer):
     empresa = EmpresaSerializer(read_only=True)
-    preco_advogado = PrecoSerializer(source='preco_set', read_only=True, many=True)
+    preco_advogado = PrecoSerializer(
+        source='preco_set',
+        read_only=True, many=True)
     status = serializers.CharField(source='get_status_display')
 
     class Meta:

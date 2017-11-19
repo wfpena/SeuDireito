@@ -4,6 +4,7 @@ from django.views.generic.base import TemplateView, View
 
 from seudireito.forms import UserLoginForm
 
+
 class LoginView(View):
     form_class = UserLoginForm
     template_name = 'seudireito/login.html'
@@ -33,16 +34,18 @@ class LoginView(View):
 
 
 class UserLogoutView(View):
-
     def get(self, request):
         logout(request)
         return redirect("loginview")
 
+
 class IndexView(TemplateView):
     template_name = 'seudireito/index.html'
 
+
 class CadastroView(TemplateView):
     template_name = 'seudireito/cadastro.html'
+
 
 class EmpresaView(TemplateView):
     template_name = 'seudireito/empresa.html'
@@ -52,6 +55,7 @@ class EmpresaView(TemplateView):
             return redirect('advogadoview')
         else:
             return render(request, self.template_name)
+
 
 class AdvogadoView(TemplateView):
     template_name = 'seudireito/advogado.html'
