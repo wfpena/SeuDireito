@@ -45,3 +45,5 @@ O projeto foi feito com o Django Rest Framework no backend e AngularJS no front-
 O usuário inicialmente pode se cadastrar como Advogado ou como Empresa. Ao se cadastrar cada um é redirecionado para uma página diferente.
 
 Os Advogados podem ver a listagem das ordens e o status de cada ordem. Só podem definir um preço para uma ordem se ela estiver com o status 'Criada'. Ao definir o preço estas informações são direcionadas para a Empresa que cadastrou a ordem, que pode avaliar, entre todas as propostas, e definir como 'Delegada' aquela que achar mais conveniente.
+=======
+# SeuDireito
