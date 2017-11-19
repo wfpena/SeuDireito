@@ -1,6 +1,6 @@
 from django.contrib.auth import login, authenticate
 from django.shortcuts import redirect
-from rest_framework.decorators import list_route
+from rest_framework.decorators import list_route, detail_route
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.status import HTTP_200_OK, HTTP_409_CONFLICT, HTTP_500_INTERNAL_SERVER_ERROR
@@ -52,8 +52,18 @@ class OrdemServicoViewSet(ModelViewSet):
     serializer_class = OrdemServicoSerializer
     queryset = OrdemServico.objects.all()
 
+    @detail_route(methods=['get'])
+    def finaliza_ordem(self, request, pk=None):
+        ordem = OrdemServico.objects.get(id=pk)
+        ordem.status = 2
+        ordem.save()
+        return Response(
+            self.serializer_class(ordem).data,
+            status=HTTP_200_OK)
+
+
     @list_route(methods=['post'])
-    def delegate_ordem(self, request, pk=None):
+    def delegate_ordem(self, request):
         ordem = OrdemServico.objects.get(id=request.data['id'])
         if ordem.status == '0':
             ordem.status = '1'

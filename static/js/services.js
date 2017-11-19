@@ -43,6 +43,9 @@
             },
             ordensEnviadas: function() {
                 return $http.get('/api/preco/ordens_advogado/');
+            },
+            finalizaOrdem: function(id) {
+                return $http.get('/api/ordem/' + id + '/finaliza_ordem/');
             }
 
         }

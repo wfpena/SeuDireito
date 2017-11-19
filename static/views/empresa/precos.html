@@ -1,5 +1,5 @@
 <div>
-    <div class="table-responsive">
+    <div ng-if="!vm.ordemDelegada" class="table-responsive">
       <table class="table">
         <thead>
           <tr>
@@ -14,5 +14,10 @@
           </tr>
         </tbody>
       </table>
+    </div>
+    <div style="text-align:center;margin:20px;" ng-if="vm.ordemDelegada">
+        <h4>Ordem delegada ao Advogado: {[{vm.preco.advogado.nome}]} por {[{vm.preco.preco}]}</h4>
+        <button ng-hide="vm.ordem.status == 'Finalizada'" class="btn login-btn" ng-click="vm.finalizarOrdem(vm.ordem.id)">Finalizar Ordem</button>
+      <p ng-show="vm.ordem.status == 'Finalizada'"><span style="background-color:#c8c2c2;padding:5px;">Ordem Finalizada</span></p>
     </div>
 </div>
